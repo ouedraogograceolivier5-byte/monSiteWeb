@@ -1,0 +1,19 @@
+# Framework principal
+Django==5.0.2
+
+# Serveur WSGI pour Django (utilisé avec NGINX)
+gunicorn==21.2.0
+
+# Base de données PostgreSQL
+psycopg2-binary==2.9.9
+
+# Gestion des variables d'environnement
+python-decouple==3.8
+
+# Sécurité et utilitaires
+django-environ==0.11.2
+
+# Optionnel : pour gérer les fichiers statiques en production
+whitenoise==6.6.0
+# Optionnel : pour les formulaires Django
+django-crispy-forms==2.0.0
