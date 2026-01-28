@@ -1,0 +1,33 @@
+{% extends "application/base.html" %}
+
+{% load static %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section id="section2">
+  <section id="contact">
+    <h2>Contactez-nous</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><strong>Département de Mathématiques</strong></p>
+        <p>Université Thomas Sankara</p>
+        <p>Ouagadougou, Burkina Faso</p>
+        <p>Email : <a href="mailto:maths@uts.bf">maths@uts.bf</a></p>
+        <p>Téléphone : +226 25 30 45 67</p>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" name="nom" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <input type="text" name="sujet" placeholder="Sujet de votre message" required>
+        <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+        <button id="simulation"  type="submit">Envoyer</button>
+        <script>
+          simulation.addEventListener("click",simulationEnvoie);
+        </script>
+      </form>
+    </div>
+  </section>
+</section>
+{% endblock %}

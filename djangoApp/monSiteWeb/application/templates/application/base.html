@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Base{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  </head>
+  <body>
+    <header align="center">
+      <nav>
+        <a href="index.html"><img width="50%" height="50%" src="{% static 'images/logo.png' %}"/></a>
+        <ul id="menu">
+          <li><a href="#section1">Entree</a></li>
+          <li><a href="#section2">Corps</a></li>
+          <li><a href="#section3">Sortie</a></li>
+          <li><button id="toggle-theme" class="button">Sombre/Claire</button></li>
+        </ul>
+        <div class="burger" id="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </nav>
+    </header>
+    <section id="section1">
+      <div align="right">
+        <a href="index.html" class="button">Retour à l'acceuil</a>
+        <a href="filieres.html" class="button">Voir filières</a>
+        <a href="enseignants.html" class="button">Enseignants</a>
+        <a href="emploi.html" class="button">Emplois du temps</a>
+      </div>
+    </section>
+
+    <main>
+      {% block content %}
+
+      {% endblock %}
+      <script src="{% static 'js/script.js' %}"></script>
+    </main>
+    
+    <section id="section3">
+      <footer>
+        <h1>&copy; 2025-2026</h1>
+      </footer>
+    </section>
+    
+    <script>
+      mode_sombre_clair();
+    </script>
+    
+  </body>
+</html>
