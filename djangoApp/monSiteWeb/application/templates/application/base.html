@@ -6,23 +6,20 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
   </head>
   <body>
-    <header align="center">
-      <nav>
-        <a href="index.html"><img width="50%" height="50%" src="{% static 'images/logo.png' %}"/></a>
-        <ul id="menu">
-          <li><a href="#section1">Entree</a></li>
-          <li><a href="#section2">Corps</a></li>
-          <li><a href="#section3">Sortie</a></li>
-          <li><button id="toggle-theme" class="button">Sombre/Claire</button></li>
-        </ul>
-        <div class="burger" id="burger">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </nav>
-    </header>
+    <header>
+    <div class="logo">MonSite</div>
+    <nav class="menu">
+      <button id="menu-toggle" class="menu-button">
+        <span class="icon">☰</span>
+        <span class="label">Menu</span>
+      </button>
+      <ul id="menu-list" class="hidden">
+        <li><a href="{% url 'home' %}"><h3>Accueil</h3></a></li>
+        <li><a href="{% url 'biographie' %}">Biographie</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
     <section id="section1">
       <div align="right">
         <a href="index.html" class="button">Retour à l'acceuil</a>

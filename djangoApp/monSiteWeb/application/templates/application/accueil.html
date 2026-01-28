@@ -1,0 +1,16 @@
+{% extends "application/base.html" %}
+
+{% load static %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+
+<section id="section2">
+  <div class="welcome-container">
+    <h2>Bienvenue sur MonSite</h2>
+    <p>Votre plateforme pour gérer les filières, les enseignants et les emplois du temps.</p>
+    <img src="{% static 'images/logo.png' %}" alt="Image de bienvenue" class="welcome-image"/>
+  </div>
+</section>
+{% endblock %}
