@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.core.mail import send_mail
 from django.conf import settings
+import time
 
 # Create your views here.
 def home(request):
@@ -14,6 +15,7 @@ def contact(request):
 
 def contact_view(request):
     if request.method == "POST":
+        time.sleep(2)  # Simule un délai de traitement
         nom = request.POST.get("nom")
         email = request.POST.get("email")
         sujet = request.POST.get("sujet")
