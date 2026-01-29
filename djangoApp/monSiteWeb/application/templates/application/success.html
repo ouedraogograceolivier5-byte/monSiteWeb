@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Message envoyé avec succès</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .success-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      max-width: 500px;
+      width: 90%;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .success-container h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .success-container p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .success-container a {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #fff;
+      color: #007bff;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .success-container a:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="success-container">
+    <h1>Message envoyé avec succès</h1>
+    <p>Merci pour votre prise de contact. Nous vous répondrons dans les plus brefs délais.</p>
+    <a href="/">Retour à l’accueil</a>
+  </div>
+</body>
+</html>

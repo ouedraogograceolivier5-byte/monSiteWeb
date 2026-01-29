@@ -5,12 +5,44 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
+<br><br><br><br><br><br>
+<div class="indice">
+  <center><h1>ACCUEIL</h1></center>
+</div>
+<div class="indice2">
+    <div class="message-bar" id="barre">
+      <h1>PRÉSENTATION</h1>
+      <span class="arrow down" id="arrow">▼</span>
+    </div>
 
+    <div class="message-detail" id="detail">
+      <h3>Détail du message</h3>
+      <div>
+        Voici le contenu caché qui apparaît avec une animation fluide.
+        La flèche change automatiquement pour indiquer si le détail est ouvert ou fermé.
+      </div>
+    </div>
+</div>
+<div align="center">
 <section id="section2">
-  <div class="welcome-container">
-    <h2>Bienvenue sur MonSite</h2>
-    <p>Votre plateforme pour gérer les filières, les enseignants et les emplois du temps.</p>
-    <img src="{% static 'images/logo.png' %}" alt="Image de bienvenue" class="welcome-image"/>
+  <div class="gallery">
+    <img src="{% static 'images/site1.jpeg' %}" class="active" alt="Photo 1">
+    <img src="{% static 'images/site2.jpeg' %}" alt="Photo 2">
+    <img src="{% static 'images/site3.jpeg' %}" alt="Photo 3">
+    <img src="{% static 'images/site4.jpeg' %}" alt="Photo 4">
+
+    <div class="controls">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+
+    <div class="indicators">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </section>
+</div>
 {% endblock %}

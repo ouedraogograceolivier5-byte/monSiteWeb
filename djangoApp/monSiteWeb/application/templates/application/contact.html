@@ -5,6 +5,10 @@
 {% block title %}Contact{% endblock %}
 
 {% block content %}
+<br><br><br><br><br><br>
+<div class="indice">
+  <center><h1>CONTACT</h1></center>
+</div><br>
 <section id="section2">
   <section id="contact">
     <h2>Contactez-nous</h2>
@@ -19,16 +23,15 @@
         </p>
       </div>
 
-      <form class="contact-form">
+      <form class="contact-form" method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
         <input type="text" name="nom" placeholder="Votre nom" required>
         <input type="email" name="email" placeholder="Votre email" required>
         <input type="text" name="sujet" placeholder="Sujet de votre message" required>
         <textarea name="message" rows="10" placeholder="Votre message..." required></textarea>
-        <button id="simulation"  type="submit">Envoyer</button>
-        <script>
-          simulation.addEventListener("click",simulationEnvoie);
-        </script>
+        <button type="submit">Envoyer</button>
       </form>
+
     </div>
   </section>
 </section>

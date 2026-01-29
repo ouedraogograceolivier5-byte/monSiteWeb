@@ -43,3 +43,66 @@ document.addEventListener('click', (event) => {
     icon.textContent = '☰';
   }
 });
+
+//Images
+const images = document.querySelectorAll('.gallery img');
+const indicators = document.querySelectorAll('.indicators span');
+let current = 0;
+let slideshowInterval;
+
+function showImage(index) {
+  images.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
+    indicators[i].classList.toggle('active', i === index);
+  });
+}
+
+function nextImage() {
+  current = (current + 1) % images.length;
+  showImage(current);
+}
+
+function prevImage() {
+  current = (current - 1 + images.length) % images.length;
+  showImage(current);
+}
+
+document.getElementById('next').addEventListener('click', () => {
+  nextImage();
+  resetSlideshow();
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+  prevImage();
+  resetSlideshow();
+});
+
+indicators.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    current = i;
+    showImage(current);
+    resetSlideshow();
+  });
+});
+
+function startSlideshow() {
+  slideshowInterval = setInterval(nextImage, 4000); // toutes les 4 secondes
+}
+
+function resetSlideshow() {
+  clearInterval(slideshowInterval);
+  startSlideshow();
+}
+
+// Démarrage automatique
+startSlideshow();
+
+//Message
+const barre = document.getElementById('barre');
+const detail = document.getElementById('detail');
+const arrow = document.getElementById('arrow');
+
+barre.addEventListener('click', () => {
+  detail.classList.toggle('active');
+  arrow.textContent = detail.classList.contains('active') ? '▲' : '▼';
+});

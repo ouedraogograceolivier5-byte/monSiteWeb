@@ -4,37 +4,81 @@
     <title>{% block title %}Base{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <style>
+      .indice {
+        background-image: url("{% static 'images/indice1.jpg' %}");
+        background-size: cover;       /* L'image couvre toute la balise */
+        background-position: center;  /* Centrage de l'image */
+        background-repeat: no-repeat; /* Pas de répétition */
+
+        display: flex;                /* Active Flexbox */
+        justify-content: center;      /* Centre horizontalement */
+        align-items: center;          /* Centre verticalement */
+
+        color: white;                 /* Texte en blanc */
+        text-align: center;           /* Centre le texte si plusieurs lignes */
+
+        width: 96%;
+        height: 40vh;                /* Pleine hauteur de l'écran */
+        padding: 1rem;                /* Un peu d'espace interne pour éviter que le texte touche les bords */
+      }
+
+      .indice2 {
+        background-image: url("{% static 'images/indice2.jpg' %}");
+        background-size: cover;       /* L'image couvre toute la balise */
+        background-position: center;  /* Centrage de l'image */
+        background-repeat: no-repeat; /* Pas de répétition */
+
+        display: flex;                /* Active Flexbox */
+        justify-content: center;      /* Centre horizontalement */
+        align-items: center;          /* Centre verticalement */
+
+        color: white;                 /* Texte en blanc */
+        text-align: center;           /* Centre le texte si plusieurs lignes */
+
+        width: 96%;
+        height: 40vh;                /* Pleine hauteur de l'écran */
+        padding: 1rem;                /* Un peu d'espace interne pour éviter que le texte touche les bords */
+      }
+
+      /*Version responsive */
+      @media (max-width: 768px) {
+        .indice {
+          height: 60vh;               /* Moins haut sur tablette */
+          font-size: 1.2rem;          /* Texte légèrement réduit */
+          padding: 2rem;              /* Plus d’espace autour du texte */
+        }
+      }
+      @media (max-width: 480px) {
+        .indice {
+        height: 50vh;               /* Moins haut sur mobile */
+          font-size: 1rem;            /* Texte encore plus adapté */
+          padding: 1.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
-    <div class="logo">MonSite</div>
+    <div class="logo"><h1>AlbertSite</h1></div>
     <nav class="menu">
       <button id="menu-toggle" class="menu-button">
         <span class="icon">☰</span>
         <span class="label">Menu</span>
       </button>
       <ul id="menu-list" class="hidden">
-        <li><a href="{% url 'home' %}"><h3>Accueil</h3></a></li>
-        <li><a href="{% url 'biographie' %}">Biographie</a></li>
-        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'home' %}"><h1>Accueil</h1></a></li>
+        <li><a href="{% url 'biographie' %}"><h1>Biographie</h1></a></li>
+        <li><a href="{% url 'contact' %}"><h1>Contact</h1></a></li>
       </ul>
     </nav>
   </header>
-    <section id="section1">
-      <div align="right">
-        <a href="index.html" class="button">Retour à l'acceuil</a>
-        <a href="filieres.html" class="button">Voir filières</a>
-        <a href="enseignants.html" class="button">Enseignants</a>
-        <a href="emploi.html" class="button">Emplois du temps</a>
-      </div>
-    </section>
+  <main>
+    {% block content %}
 
-    <main>
-      {% block content %}
-
-      {% endblock %}
-      <script src="{% static 'js/script.js' %}"></script>
-    </main>
+    {% endblock %}
+    <script src="{% static 'js/script.js' %}"></script>
+  </main>
     
     <section id="section3">
       <footer>
