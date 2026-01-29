@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 import os
 from pathlib import Path
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,11 +78,16 @@ WSGI_APPLICATION = 'monSiteWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}"""
+
+DATABASES = {
+    #'default': dj_database_url.config(default='postgres://...')
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
@@ -130,10 +136,11 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #Envoi de messages par mail
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+"""EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "ouedraogograceolivier5@gmail.com"
 EMAIL_HOST_PASSWORD = "gdlzdbacomplbvwc"  # mot de passe d’application
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+"""

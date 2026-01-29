@@ -336,3 +336,20 @@ main {
   max-height: 200px;           /* hauteur suffisante pour le contenu */
   padding: 15px;               /* padding complet quand visible */
 }
+
+/*Animation des boutons*/
+nav a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: white;
+  color: #007BFF;
+  transform: scale(1.05);
+}

@@ -20,3 +20,12 @@ django-crispy-forms==2.0.0
 
 whitenoise
 
+dj-database-url
+
+django-environ
+
+Pillow
+
+
+
+
