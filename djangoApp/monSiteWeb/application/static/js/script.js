@@ -106,3 +106,7 @@ barre.addEventListener('click', () => {
   detail.classList.toggle('active');
   arrow.textContent = detail.classList.contains('active') ? '▲' : '▼';
 });
+
+document.getElementById("barre").addEventListener("click", function () {
+  document.querySelector(".indice2").classList.toggle("active");
+});

@@ -25,7 +25,3 @@ dj-database-url
 django-environ
 
 Pillow
-
-
-
-
