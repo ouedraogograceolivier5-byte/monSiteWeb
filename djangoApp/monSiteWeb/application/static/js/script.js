@@ -1,5 +1,5 @@
 //Mode sombre ou clair
-function mode_sombre_clair(){
+function mode_sombre_clair() {
   const toggleBtn = document.getElementById('toggle-theme');
   const body = document.body;
 
@@ -22,25 +22,23 @@ function mode_sombre_clair(){
 
 
 //Menu
-const menuToggle = document.getElementById('menu-toggle');
-const menuList = document.getElementById('menu-list');
-const icon = menuToggle.querySelector('.icon');
-const label = menuToggle.querySelector('.label');
+const menuToggle = document.getElementById('menuToggle');
+const overlay = document.getElementById('overlay');
+const sidebar = document.getElementById('sidebar');
 
+// Ouvrir/fermer via le bouton
 menuToggle.addEventListener('click', () => {
-  const isOpen = menuList.classList.toggle('show');
-  menuToggle.classList.toggle('open', isOpen);
-  label.textContent = isOpen ? 'Fermer' : 'Menu';
-  icon.textContent = isOpen ? '✖' : '☰';
+  if (overlay.style.display === 'block') {
+    overlay.style.display = 'none';
+  } else {
+    overlay.style.display = 'block';
+  }
 });
 
-// Fermer le menu si on clique ailleurs
-document.addEventListener('click', (event) => {
-  if (!menuList.contains(event.target) && event.target !== menuToggle) {
-    menuList.classList.remove('show');
-    menuToggle.classList.remove('open');
-    label.textContent = 'Menu';
-    icon.textContent = '☰';
+// Fermer si clic en dehors du menu
+overlay.addEventListener('click', (e) => {
+  if (!sidebar.contains(e.target)) {
+    overlay.style.display = 'none';
   }
 });
 

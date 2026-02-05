@@ -1,106 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>{% block title %}Base{% endblock %}</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-    <style>
-      .indice {
-        background-image: url("{% static 'images/indice1.jpg' %}");
-        background-size: cover;       /* L'image couvre toute la balise */
-        background-position: center;  /* Centrage de l'image */
-        background-repeat: no-repeat; /* Pas de répétition */
+  <title>{% block title %}Base{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <style>
+    .indice {
+      background-image: url("{% static 'images/indice1.jpg' %}");
+      background-size: cover;
+      /* L'image couvre toute la balise */
+      background-position: center;
+      /* Centrage de l'image */
+      background-repeat: no-repeat;
+      /* Pas de répétition */
 
-        display: flex;                /* Active Flexbox */
-        justify-content: center;      /* Centre horizontalement */
-        align-items: center;          /* Centre verticalement */
+      display: flex;
+      /* Active Flexbox */
+      justify-content: center;
+      /* Centre horizontalement */
+      align-items: center;
+      /* Centre verticalement */
 
-        color: white;                 /* Texte en blanc */
-        text-align: center;           /* Centre le texte si plusieurs lignes */
+      color: white;
+      /* Texte en blanc */
+      text-align: center;
+      /* Centre le texte si plusieurs lignes */
 
-        width: 96%;
-        height: 40vh;                /* Pleine hauteur de l'écran */
-        padding: 1rem;                /* Un peu d'espace interne pour éviter que le texte touche les bords */
-      }
+      width: 96%;
+      height: 40vh;
+      /* Pleine hauteur de l'écran */
+      padding: 1rem;
+      /* Un peu d'espace interne pour éviter que le texte touche les bords */
+    }
 
-      .indice2 {
-  background-image: url("{% static 'images/indice2.jpg' %}");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    .indice2 {
+      background-image: url("{% static 'images/indice2.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
 
-  width: 96%;
-  padding: 1rem;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-  transition: height 0.6s ease;
-}
+      width: 96%;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      transition: height 0.6s ease;
+    }
 
-/* PRÉSENTATION centré */
-.message-bar {
-  cursor: pointer;
-  color: red;
-  font-size: 2em;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    /* PRÉSENTATION centré */
+    .message-bar {
+      cursor: pointer;
+      color: red;
+      font-size: 2em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-/* DETAIL caché au départ */
-.message-detail {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.8s ease;
-  color: black;
-}
+    /* DETAIL caché au départ */
+    .message-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.8s ease;
+      color: black;
+    }
 
-/* DETAIL visible quand actif */
-.indice2.active .message-detail {
-  max-height: 1000px; /* assez grand pour tout le contenu */
-}
+    /* DETAIL visible quand actif */
+    .indice2.active .message-detail {
+      max-height: 1000px;
+      /* assez grand pour tout le contenu */
+    }
 
-    </style>
-  </head>
-  <body>
-    <header>
-    <div class="logo"><h1>AlbertSite</h1></div>
-    <div class="header-right">
-    <nav class="menu">
-      <button id="menu-toggle" class="menu-button">
-        <span class="icon">☰</span>
-        <span class="label">Menu</span>
-      </button>
-      <ul id="menu-list" class="hidden">
-        <li><a href="{% url 'home' %}"><h1>Accueil</h1></a></li>
-        <li><a href="{% url 'biographie' %}"><h1>Biographie</h1></a></li>
-        <li><a href="{% url 'contact' %}"><h1>Contact</h1></a></li>
-      </ul>
-    </nav>
-    <a href="#" id="toggle-theme" ><img id="toggle-theme" src="../../static/images/ss.png" alt="Mode clair/sombre"></a>
+    /* Contenu principal */
+    .content {
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <h1>AlbertSite</h1>
+    </div>
+    <div class="header-actions">
+      <button class="menu-toggle" id="menuToggle">☰ Menu</button>
+      <img id="toggle-theme" src="../../static/images/ss.png" alt="Mode clair/sombre">
     </div>
   </header>
-  <main>
+  <div class="overlay" id="overlay">
+    <aside class="sidebar" id="sidebar">
+      <h3><u>Navigation</u></h3>
+      <a href="{% url 'home' %}"><button><h1>Accueil</h1></button></a>
+      <a href="{% url 'biographie' %}"><button><h1>Biographie</h1></button></a>
+      <a href="{% url 'bibliotheque' %}"><button><h1>Bibliothèque</h1></button></a>
+      <a href="{% url 'contact' %}"><button><h1>Contact</h1></button></a>
+    </aside>
+  </div>
+  <main class="content">
     {% block content %}
 
     {% endblock %}
     <script src="{% static 'js/script.js' %}"></script>
   </main>
-    
-    <section id="section3">
-      <footer>
-        <h1>&copy; 2025-2026</h1>
-      </footer>
-    </section>
-    
-    <script>
-      mode_sombre_clair();
-    </script>
-    
-  </body>
+
+  <section id="section3">
+    <footer>
+      <h1>&copy; 2025-2026</h1>
+    </footer>
+  </section>
+
+  <script>
+    mode_sombre_clair();
+  </script>
+
+</body>
+
 </html>

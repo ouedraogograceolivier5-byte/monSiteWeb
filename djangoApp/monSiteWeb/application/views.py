@@ -10,6 +10,9 @@ def home(request):
 def biographie(request):
     return render(request, "application/biographie.html")
 
+def bibliotheque(request):
+    return render(request, "application/bibliotheque.html")
+
 def contact(request):
     return render(request, "application/contact.html")
 

@@ -1,0 +1,86 @@
+{% extends 'application/base.html' %}
+
+{% block content %}
+<br><br><br><br><br><br>
+<div class="indice" style="font-size: 50px;">
+  <center><h1>BIBLIOTHÈQUE</h1></center>
+</div><br>
+
+<div class="search-container" align="center">
+  <input type="text" id="searchInput" placeholder="Rechercher...">
+  <button id="searchBtn">🔍</button>
+</div>
+
+<table id="quotesTable" align="center">
+  <caption align=top>
+    <center><h1>Bibliothèque de documents</h1></center>
+  </caption>
+  
+  <thead border="2">
+    <tr><th>Nom</th><th>Type</th><th>Date</th><th>Télécharger</th></tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Guide Utilisateur</td>
+      <td>DOCX</td>
+      <td>01/02/2026</td>
+      <td><a href="../../static/telecharger/guide.docm" class="download" download>Télécharger</a></td>
+    </tr>
+
+    <tr>
+      <td>Présentation Projet</td>
+      <td>PPTX</td>
+      <td>28/01/2026</td>
+      <td><a href="../../static/telecharger/Travail_DeveloppementWeb.pptx" class="download" download>Télécharger</a></td>
+    </tr>
+
+    <tr>
+      <td>Periode du projet</td>
+      <td>JPEG</td>
+      <td>10/02/2026</td>
+      <td><a href="../../static/images/S5.jpeg" class="download" download>Télécharger</a></td>
+    </tr>
+  </tbody>
+</table>
+<script>
+  // Fonction de recherche déclenchée par le bouton
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+
+  function recherche() {
+    const table = document.getElementById("quotesTable");
+    const rows = table.getElementsByTagName("tr");
+    const filter = searchInput.value.toLowerCase();
+    for (let i = 1; i < rows.length; i++) {
+      const cells = rows[i].getElementsByTagName("td");
+      let match = false;
+
+      for (let j = 0; j < cells.length; j++) {
+        const text = cells[j].innerText;
+        if (j==3) continue; // Ignorer la colonne de téléchargement
+        
+        if (text.toLowerCase().includes(filter)) {
+          match = true;
+          const regex = new RegExp(`(${filter})`, "gi");
+          cells[j].innerHTML = text.replace(regex, "<span class='highlight'>$1</span>");
+        } else {
+          cells[j].innerHTML = text; // Nettoyer surlignage
+        }
+      }
+
+      rows[i].style.display = match ? "" : "none";
+    }
+  }
+
+  // Lancer la recherche quand on clique sur le bouton
+  searchBtn.addEventListener("click", recherche);
+
+  // Lancer aussi la recherche si on appuie sur "Entrée"
+  searchInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      recherche();
+    }
+  });
+</script>
+{% endblock %}
