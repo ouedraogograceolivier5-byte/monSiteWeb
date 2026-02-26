@@ -2,10 +2,8 @@ services:
   - type: web
     name: monSiteWeb
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn monSiteWeb.wsgi
+    buildCommand: pip install -r requirements.txt && python manage.py migrate
+    startCommand: gunicorn monSiteWeb.wsgi:application
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: monSiteWeb-db
-          property: connectionString
+        sync: false
